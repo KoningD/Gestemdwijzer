@@ -10,15 +10,15 @@ exit_url <- "&fromdate=23-03-2017&todate=02-12-2018"
 list_urls <- paste(basisurl, change_urls, exit_url, sep = "")
 
 #download all xml's of search results pages
-base_location <-  "C:/Users/GemeenteUtrecht/Desktop/Gestemdwijzer/Files_Search_Results/"
+base_location <-  "./Files_Search_Results/"
 
 for (i in 1:length(list_urls)){ 
-  location <- paste(base_location, end_urls[i], ".xml", sep = "")
+  location <- paste(base_location, change_urls[i], ".xml", sep = "")
   download_xml(list_urls[i], file = location)
 }
 
 #extract urls from the search results pages 
-files_list <- list.files("C:/Users/GemeenteUtrecht/Desktop/Gestemdwijzer/Files_Search_Results/")
+files_list <- list.files("./Files_Search_Results/")
 list_urls_motions <- list()
 
 for (i in 1:length(files_list)){
@@ -30,7 +30,7 @@ for (i in 1:length(files_list)){
 list_urls_motions %<>% unlist()
 
 #download all pages with motions
-base_location <-  "C:/Users/GemeenteUtrecht/Desktop/Gestemdwijzer/Files_Motions/"
+base_location <-  "./Files_Motions/"
 
 for (i in 1:length(list_urls_motions)){ 
   location <- paste(base_location, i, ".xml", sep = "")
