@@ -1,3 +1,12 @@
+#Project by: Dewi Koning
+#Contact: dewikoning@gmail.com
+#Web: https://github.com/KoningD/Gestemdwijzer
+#Project title: Gestemdwijzer
+#Project description: A coherent view of the voting behaviour of political parties in the parliament of the Netherlands
+#Last Change: 27th of December 2018
+#Script: 1_Downloaden_Data
+
+
 #load libraries 
 library(rvest)
 library(tidyverse)
@@ -37,3 +46,4 @@ for (i in 1:length(list_urls_motions)){
   total_url <- paste("www.tweedekamer.nl", list_urls_motions[i], sep = "")
   download_xml(total_url, file = location)
 }
+beepr::beep(sound = 8)
